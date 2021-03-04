@@ -105,3 +105,9 @@ Covers all criteria for task. To run tests: `python tests.py`
   'input': [1,2,3]
 }
 ```
+
+Running test:
+
+```powershell
+python -m unittest tests/test_special_sum.py
+```
