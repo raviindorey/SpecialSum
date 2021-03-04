@@ -1,53 +1,18 @@
-#!usr/bin/env python3
+import os
+from flask import Flask
+from flask_restful import Api
 
-import sys
+from resources.special_sum import SpecialSum
 
-ERR_NUM_ARGS = 'Exactly 3 numbers are required'
-ERR_NON_NUMERIC = 'All inputs must be numeric'
-TEEN_RANGE = range(13, 20)
-UNACCEPTABLE_TEENS = (15, 16)
+# Flask setup
+app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
 
-args = sys.argv[1:]
+# Flask Restful
+api = Api(app)
 
-
-def special_sum(args=[]):
-    """
-    Stop execution and if arguments passed are
-    not equal to 3
-    print error message if not the case
-    """
-    if len(args) != 3:
-        print(ERR_NUM_ARGS)
-        return
-
-    num_list = []
-
-    """
-    coerce the numeric type of string and add to
-    num_list
-    print error message if wrong type is provided
-    """
-    for arg in args:
-        if type(arg) == int or arg.isnumeric():
-            num_list.append(int(arg))
-        else:
-            print(ERR_NON_NUMERIC)
-            return
-
-    sum = 0
-
-    """
-    sum of all numbers in num list
-    where numbers from 13 to 19 should be treated as 0
-    except numbers 15 and 16
-    """
-    for num in num_list:
-        if num in TEEN_RANGE and num not in UNACCEPTABLE_TEENS:
-            num = 0
-        sum += num
-
-    print(sum)
+api.add_resource(SpecialSum, '/sum')
 
 
 if __name__ == '__main__':
-    special_sum(args)
+    app.run(port=5000, debug=True)

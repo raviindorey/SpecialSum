@@ -88,6 +88,20 @@ For `pip` use `requirements.txt`
 $ pip install -r requirements.txt
 ```
 
+You'll need `SECRET_KEY` set as environment variable
+
 ### Solution: Task 1
 
 Covers all criteria for task. To run tests: `python tests.py`
+
+## Solution: Task 2
+
+`application/json` data submitted is assumed to have key of `input`
+
+```javascript
+// valid put request data:
+// notice no space between comas and numbers
+{
+  'input': [1,2,3]
+}
+```
