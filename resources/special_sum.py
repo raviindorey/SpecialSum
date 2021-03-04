@@ -18,7 +18,6 @@ class SpecialSum(Resource):
         # create list of input values
         input_list = input_list.split(',')
 
-
         """
         return error message if arguments passed are
         not equal to 3
