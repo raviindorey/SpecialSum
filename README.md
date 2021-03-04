@@ -90,7 +90,7 @@ $ pip install -r requirements.txt
 
 You'll need `SECRET_KEY` set as environment variable set in `.env` file at root level.
 
-### Solution: Task 1
+## Solution: Task 1
 
 Covers all criteria for task. To run tests: `python tests.py`
 
@@ -112,7 +112,7 @@ Running test:
 $ python -m unittest tests/test_special_sum.py
 ```
 
-# Solution: Task 3
+## Solution: Task 3
 
 Run container by:
 
