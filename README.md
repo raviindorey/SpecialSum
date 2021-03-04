@@ -64,3 +64,30 @@ Solution must contain the following files and be pushed to a GitHub repository.
 - Unit testing script (https://www.geeksforgeeks.org/unit-testing-python-unittest/)
 - requirements.txt
 - Dockerfile
+
+## Solution
+
+All tasks are on different branch. The master branch will contain the resultant project.
+Navigate through tasks by `$ git checkout <branch-name>`.
+
+Follow examples to understand command and input.
+
+## Setup
+
+### Dependencies
+
+For `pipenv` use:
+
+```powershell
+$ pipenv install
+```
+
+For `pip` use `requirements.txt`
+
+```powershell
+$ pip install -r requirements.txt
+```
+
+### Solution: Task 1
+
+Covers all criteria for task. To run tests: `python tests.py`
