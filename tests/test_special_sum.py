@@ -14,10 +14,12 @@ class TestsSpecialSum(unittest.TestCase):
     def test_not_accept_less_than_three_args(self):
         response = put_to_special_sum([1, 2])
         self.assertEqual(response.get_json()['error'], ERR_NUM_ARGS)
+        self.assertEqual(response.status_code, 400)
 
     def test_not_accept_more_than_three_args(self):
         response = put_to_special_sum([1, 2, 3, 4])
         self.assertEqual(response.get_json()['error'], ERR_NUM_ARGS)
+        self.assertEqual(response.status_code, 400)
 
     def test_not_accept_non_numeric_args(self):
         response = put_to_special_sum([1, 2, 'abc'])
@@ -25,16 +27,20 @@ class TestsSpecialSum(unittest.TestCase):
             response.get_json()['error'],
             ERR_NON_NUMERIC
         )
+        self.assertEqual(response.status_code, 400)
 
     def test_teens_are_zero(self):
         response = put_to_special_sum([1, 2, 13])
         self.assertEqual(response.get_json()['result'], 3)
+        self.assertEqual(response.status_code, 200)
 
     def test_teens_are_exclusive_of_fifteen_and_sixteen(self):
         response = put_to_special_sum([1, 2, 15])
         self.assertEqual(18, response.get_json()['result'])
+        self.assertEqual(response.status_code, 200)
         response = put_to_special_sum([1, 2, 16])
         self.assertEqual(19, response.get_json()['result'])
+        self.assertEqual(response.status_code, 200)
 
 
 def put_to_special_sum(num_list):
