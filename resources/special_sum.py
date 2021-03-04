@@ -50,4 +50,4 @@ class SpecialSum(Resource):
                 num = 0
             sum += num
 
-        return {'result': sum}
+        return {'result': sum}, 200
